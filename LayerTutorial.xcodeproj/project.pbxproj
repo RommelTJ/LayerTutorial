@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		777AEABE1DD2930D006CB312 /* LayerChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777AEABD1DD2930D006CB312 /* LayerChatCell.swift */; };
 		77B2450C1DD14164008D8157 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B2450B1DD14164008D8157 /* AppDelegate.swift */; };
 		77B2450E1DD14164008D8157 /* LayerMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B2450D1DD14164008D8157 /* LayerMainViewController.swift */; };
 		77B245111DD14164008D8157 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77B2450F1DD14164008D8157 /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 /* Begin PBXFileReference section */
 		245AFA1971B5FE39242DD5A4 /* Pods_LayerTutorial.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LayerTutorial.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		77133A881DD147D700589673 /* LayerTutorial-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LayerTutorial-Bridging-Header.h"; sourceTree = "<group>"; };
+		777AEABD1DD2930D006CB312 /* LayerChatCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayerChatCell.swift; sourceTree = "<group>"; };
 		77B245081DD14164008D8157 /* LayerTutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LayerTutorial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77B2450B1DD14164008D8157 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77B2450D1DD14164008D8157 /* LayerMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerMainViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 			children = (
 				77B2450B1DD14164008D8157 /* AppDelegate.swift */,
 				77B2450D1DD14164008D8157 /* LayerMainViewController.swift */,
+				777AEABD1DD2930D006CB312 /* LayerChatCell.swift */,
 				77B2450F1DD14164008D8157 /* Main.storyboard */,
 				77B245121DD14164008D8157 /* Assets.xcassets */,
 				77B245141DD14164008D8157 /* LaunchScreen.storyboard */,
@@ -215,6 +218,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				777AEABE1DD2930D006CB312 /* LayerChatCell.swift in Sources */,
 				77B2450E1DD14164008D8157 /* LayerMainViewController.swift in Sources */,
 				77B2450C1DD14164008D8157 /* AppDelegate.swift in Sources */,
 			);

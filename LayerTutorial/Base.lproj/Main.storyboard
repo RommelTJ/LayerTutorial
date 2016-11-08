@@ -26,7 +26,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="602"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="cme-N9-tWj">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="layerChatCell" id="cme-N9-tWj" customClass="LayerChatCell" customModule="LayerTutorial" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="22" width="375" height="137"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cme-N9-tWj" id="Evw-iS-Vwp">
@@ -34,10 +34,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Simulator" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ed-3p-VYq" userLabel="Device Label">
-                                                    <rect key="frame" x="16" y="11" width="50" height="12"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="50" id="kbb-Ka-u4Q"/>
-                                                    </constraints>
+                                                    <rect key="frame" x="16" y="11" width="46" height="12"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -80,6 +77,11 @@
                                             <constraint firstAttribute="trailing" secondItem="dR6-cO-a4y" secondAttribute="trailing" id="mSj-9N-iJx"/>
                                             <constraint firstAttribute="bottom" secondItem="dR6-cO-a4y" secondAttribute="bottom" constant="5" id="zjc-Nm-q8x"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="deviceLabel" destination="0ed-3p-VYq" id="sZ4-QY-zXs"/>
+                                            <outlet property="messageLabel" destination="YGC-Of-3yC" id="SpT-jr-88j"/>
+                                            <outlet property="messageStatus" destination="Ngv-ye-R5I" id="AIK-wH-DbK"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -123,6 +125,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="Send"/>
+                                        <connections>
+                                            <action selector="pushedSend:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eMX-P2-zz4"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7fF-8L-zwQ">
                                         <rect key="frame" x="16" y="21.5" width="30" height="22"/>
@@ -130,6 +135,9 @@
                                             <constraint firstAttribute="width" constant="30" id="rW1-qv-qrw"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="Camera"/>
+                                        <connections>
+                                            <action selector="pushedCamera:" destination="BYZ-38-t0r" eventType="touchUpInside" id="S6i-wJ-7DA"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -168,9 +176,18 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="d1p-Ts-4pW">
-                        <barButtonItem key="leftBarButtonItem" image="Announcements" style="done" id="wqM-Eu-AxE"/>
-                        <barButtonItem key="rightBarButtonItem" title="Clear" id="TPm-Gs-cDn"/>
+                        <barButtonItem key="leftBarButtonItem" image="Announcements" style="done" id="wqM-Eu-AxE">
+                            <inset key="imageInsets" minX="8" minY="8" maxX="8" maxY="8"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Clear" id="TPm-Gs-cDn">
+                            <inset key="imageInsets" minX="8" minY="8" maxX="8" maxY="8"/>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="messageImage" destination="leW-1J-EPd" id="7pi-AV-XcH"/>
+                        <outlet property="messageTextView" destination="4i4-lL-e76" id="gug-CB-NR4"/>
+                        <outlet property="typingIndicatorLabel" destination="LEr-1S-soT" id="dWV-DN-t1M"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
