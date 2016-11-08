@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		77B2450C1DD14164008D8157 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B2450B1DD14164008D8157 /* AppDelegate.swift */; };
-		77B2450E1DD14164008D8157 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B2450D1DD14164008D8157 /* ViewController.swift */; };
+		77B2450E1DD14164008D8157 /* LayerMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B2450D1DD14164008D8157 /* LayerMainViewController.swift */; };
 		77B245111DD14164008D8157 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77B2450F1DD14164008D8157 /* Main.storyboard */; };
 		77B245131DD14164008D8157 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77B245121DD14164008D8157 /* Assets.xcassets */; };
 		77B245161DD14164008D8157 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77B245141DD14164008D8157 /* LaunchScreen.storyboard */; };
@@ -20,7 +20,7 @@
 		77133A881DD147D700589673 /* LayerTutorial-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LayerTutorial-Bridging-Header.h"; sourceTree = "<group>"; };
 		77B245081DD14164008D8157 /* LayerTutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LayerTutorial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77B2450B1DD14164008D8157 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		77B2450D1DD14164008D8157 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		77B2450D1DD14164008D8157 /* LayerMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerMainViewController.swift; sourceTree = "<group>"; };
 		77B245101DD14164008D8157 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		77B245121DD14164008D8157 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		77B245151DD14164008D8157 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -72,7 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				77B2450B1DD14164008D8157 /* AppDelegate.swift */,
-				77B2450D1DD14164008D8157 /* ViewController.swift */,
+				77B2450D1DD14164008D8157 /* LayerMainViewController.swift */,
 				77B2450F1DD14164008D8157 /* Main.storyboard */,
 				77B245121DD14164008D8157 /* Assets.xcassets */,
 				77B245141DD14164008D8157 /* LaunchScreen.storyboard */,
@@ -215,7 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				77B2450E1DD14164008D8157 /* ViewController.swift in Sources */,
+				77B2450E1DD14164008D8157 /* LayerMainViewController.swift in Sources */,
 				77B2450C1DD14164008D8157 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -260,6 +260,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -310,6 +311,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
