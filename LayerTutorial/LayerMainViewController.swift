@@ -54,6 +54,10 @@ class LayerMainViewController: UIViewController {
     @IBAction func pushedCamera(_ sender: Any) {
         print("TODO: Implement pushedCamera")
     }
+    
+    @IBAction func pushedClear(_ sender: Any) {
+        print("TODO: Implement pushedClear")
+    }
 
 }
 
