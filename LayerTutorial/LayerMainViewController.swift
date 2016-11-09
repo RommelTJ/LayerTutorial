@@ -62,7 +62,13 @@ class LayerMainViewController: UIViewController {
 }
 
 extension LayerMainViewController: UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("TODO: Implement numberOfRowsInSection")
         return 1
     }
     
@@ -78,7 +84,7 @@ extension LayerMainViewController: UITableViewDataSource {
     }
     
     func configureCell(_ cell: LayerChatCell, forRowAtIndexPath indexPath: IndexPath) {
-        // TODO: Implement this method for realz
+        print("TODO: Implement configureCell")
         cell.messageLabel.text = "Hello World"
         cell.deviceLabel.text = "Platform @ 32142314235"
     }
@@ -86,5 +92,28 @@ extension LayerMainViewController: UITableViewDataSource {
 }
 
 extension LayerMainViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        print("TODO: Implement heightForRowAt")
+        return 70
+    }
+}
+
+extension LayerMainViewController: UITextViewDelegate {
     
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        print("TODO: Implement textViewDidBeginEditing")
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        print("TODO: Implement textViewDidEndEditing")
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        print("TODO: Implement textView shouldChangeTextIn range")
+        return false
+    }
+    
+    func moveViewUpToShowKeyboard(_ movedUp: Bool) {
+        print("TODO: Implement moveViewUpToShowKeyboard")
+    }
 }
