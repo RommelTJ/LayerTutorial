@@ -9,6 +9,30 @@
 import UIKit
 import LayerKit
 
+/**
+ Layer App ID from developer.layer.com
+ */
+let LQSLayerAppIDString = "layer:///apps/staging/725c98a0-a51f-11e6-bfe9-455cd2013b06"
+
+#if arch(i386) || arch(x86_64) // Simulator
+    
+    // If on simulator set the user ID to Simulator and participant to Device
+let LQSCurrentUserID = "Simulator"
+let LQSParticipantUserID = "Device"
+let LQSInitialMessageText = "Hey Device! This is your friend, Simulator."
+    
+#else // Device
+    
+    // If on device set the user ID to Device and participant to Simulator
+let LQSCurrentUserID = "Device"
+let LQSParticipantUserID = "Simulator"
+let LQSInitialMessageText = "Hey Simulator! This is your friend, Device."
+    
+#endif
+
+let LQSParticipant2UserID = "Dashboard"
+
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -18,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        let appID = URL(string: "layer:///apps/staging/725c98a0-a51f-11e6-bfe9-455cd2013b06")
+        let appID = URL(string: LQSLayerAppIDString)
         let layerClient = LYRClient(appID: appID!, delegate: self, options: nil)
         layerClient.connect { (success: Bool, error: Error?) in
             if success {

@@ -186,6 +186,7 @@
                     <connections>
                         <outlet property="messageImage" destination="leW-1J-EPd" id="7pi-AV-XcH"/>
                         <outlet property="messageTextView" destination="4i4-lL-e76" id="gug-CB-NR4"/>
+                        <outlet property="tableView" destination="C2w-YK-a7Q" id="cVq-LR-S0k"/>
                         <outlet property="typingIndicatorLabel" destination="LEr-1S-soT" id="dWV-DN-t1M"/>
                     </connections>
                 </viewController>
