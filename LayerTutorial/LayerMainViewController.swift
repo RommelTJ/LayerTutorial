@@ -61,7 +61,15 @@ class LayerMainViewController: UIViewController, UINavigationControllerDelegate 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        if layerClient == nil {
+            let alert = UIAlertController(title: "\u{1F625}", message: "To correctly use this project you need to replace LAYER_APP_ID in AppDelegate.swift (line 6) with your App ID from developer.layer.com.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action) in
+                abort()
+            }))
+            present(alert, animated: true, completion: nil)
+            return
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -72,9 +80,11 @@ class LayerMainViewController: UIViewController, UINavigationControllerDelegate 
     // MARK: IBActions
     
     @IBAction func pushedSend(_ sender: Any) {
-        print("PUSHED SEND")
+        print("PUSHED SEND: \(messageTextView.text)")
         // Send Message
-        sendMessage(messageTextView.text)
+        var test = messageTextView.text!
+        print("TEST: \(test)")
+        sendMessage(messageTextView.text!)
         
         // Lower the keyboard
         moveViewUpToShowKeyboard(false)
@@ -170,11 +180,12 @@ class LayerMainViewController: UIViewController, UINavigationControllerDelegate 
         query.predicate = LYRPredicate(property: "participants", predicateOperator: LYRPredicateOperator.isEqualTo, value: [ LQSCurrentUserID, LQSParticipantUserID, LQSParticipant2UserID ] as AnyObject)
         query.sortDescriptors = [ NSSortDescriptor(key: "createdAt", ascending: false) ]
         
-        var error: Error? = nil
+        var error: NSError? = nil
         var conversations: NSOrderedSet?
         do {
             conversations = try layerClient?.execute(query)
         } catch let error1 as NSError {
+            print("Error1: \(error1)")
             error = error1
             conversations = nil
         }
@@ -185,6 +196,7 @@ class LayerMainViewController: UIViewController, UINavigationControllerDelegate 
                 let participants: Set<String> = Set([LQSParticipantUserID, LQSParticipant2UserID])
                 self.conversation = try layerClient!.newConversation(withParticipants: participants, options: nil)
             } catch let error as NSError {
+                print("ConvError: \(error)")
                 convError = error
                 self.conversation = nil
             }
