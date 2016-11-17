@@ -36,6 +36,11 @@
 	</array>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>I need to view your photo library so I can creep on you.</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

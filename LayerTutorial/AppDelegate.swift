@@ -8,6 +8,7 @@
 
 import UIKit
 import LayerKit
+import Alamofire
 
 /**
  Layer App ID from developer.layer.com
@@ -50,6 +51,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             showFirstTimeMessage()
             
             // Initialize a LYRClient object
+            print("LQSCurrentUserID: \(LQSCurrentUserID)")
+            print("LQSLayerAppIDString: \(LQSLayerAppIDString)")
+            
             let appID = URL(string: LQSLayerAppIDString)
             layerClient = LYRClient(appID: appID!)
             layerClient.connect { (success: Bool, error: Error?) in
@@ -139,56 +143,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func requestIdentityTokenForUserID(userID: String, appID: String, nonce: String, completion: @escaping ((_ identityToken: String, _ error: Error?) -> Void)) {
         //TODO: Authenticate against your own backend to get your own Identity Token. In our case, USDSecurity.
-        let identityToken = "abcd-1234-efgh-5678"
-        completion(identityToken, nil)
-        
-        
-//        let identityTokenURL = URL(string: "https://layer-identity-provider.herokuapp.com/identity_tokens")
-//        let request = NSMutableURLRequest(url: identityTokenURL!)
-//        //let request = NSMutableURLRequest(URL: identityTokenURL!)
-//        //let request = NSMutableURLRequest(url: identityTokenURL!)
-//        request.httpMethod = "POST"
-//        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-//        request.setValue("application/json", forHTTPHeaderField: "Accept")
-//        
-//        let parameters = ["app_id": appID, "user_id": userID, "nonce": nonce]
-//        //let requestBody = try? NSJSONSerialization.dataWithJSONObject(parameters, options: [])
-//        let requestBody: Data? = try? JSONSerialization.data(withJSONObject: parameters, options: [])
-//        request.httpBody = requestBody
-//        
-//        let sessionConfiguration = URLSessionConfiguration.ephemeral
-//        let session = URLSession(configuration: sessionConfiguration)
-//        
-//        //        let sessionConfiguration = NSURLSessionConfiguration.ephemeralSessionConfiguration()
-//        //        let session = NSURLSession(configuration: sessionConfiguration)
-//        
-//        let dataTask = session.dataTask(with: request as URLRequest) { (data, response, error) in
-//            if error != nil {
-//                completion("", error)
-//                return
-//            }
-//            
-//            // Deserialize the response
-//            let responseObject = try! JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments) as! NSDictionary
-//            
-//            if responseObject["error"] == nil {
-//                let identityToken = responseObject["identity_token"] as! String
-//                completion(identityToken, nil)
-//            } else {
-//                let domain = "layer-identity-provider.herokuapp.com"
-//                let code = (responseObject["status"]! as AnyObject).integerValue
-//                let userInfo = [
-//                    NSLocalizedDescriptionKey: "Layer Identity Provider Returned an Error.",
-//                    NSLocalizedRecoverySuggestionErrorKey: "There may be a problem with your APPID."
-//                ]
-//                
-//                let error = NSError(domain: domain, code: code!, userInfo: userInfo)
-//                completion("", error)
-//            }
-//        }
-//        
-//        dataTask.resume()
-        
+        let identityTokenURL: String = "https://mymobilefourlb.sandiego.edu/USDSecurity/v1/layer/token"
+        let parameters: [String: String] = [ "uid": userID,
+                                             "nonce": nonce ]
+        Alamofire.request(identityTokenURL, method: .post, parameters: parameters, encoding: URLEncoding.default, headers: nil).validate().responseJSON { (response) in
+            if let json = response.result.value as? [String: String] {
+                let myToken: String = json["token"]!
+                completion(myToken, nil)
+            } else {
+                completion("", response.result.error)
+                return
+            }
+        }
     }
 
     

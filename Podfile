@@ -5,5 +5,6 @@ use_frameworks!
 
 target 'LayerTutorial' do
   pod 'LayerKit'
+  pod 'Alamofire', '~> 4.0'
 end
 

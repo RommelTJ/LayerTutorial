@@ -1,12 +1,15 @@
 PODS:
+  - Alamofire (4.0.1)
   - LayerKit (0.23.3)
 
 DEPENDENCIES:
+  - Alamofire (~> 4.0)
   - LayerKit
 
 SPEC CHECKSUMS:
+  Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
   LayerKit: 128b3b0c036422458d621f81f36e6b42d372feba
 
-PODFILE CHECKSUM: ad7a3bb2da5b61d66e2f02b05513f14f94ca0108
+PODFILE CHECKSUM: 364adb1756d68c23cdff5da31175faa115b81423
 
 COCOAPODS: 1.1.1
