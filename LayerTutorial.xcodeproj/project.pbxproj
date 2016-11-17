@@ -20,6 +20,7 @@
 		245AFA1971B5FE39242DD5A4 /* Pods_LayerTutorial.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LayerTutorial.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		77133A881DD147D700589673 /* LayerTutorial-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LayerTutorial-Bridging-Header.h"; sourceTree = "<group>"; };
 		777AEABD1DD2930D006CB312 /* LayerChatCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayerChatCell.swift; sourceTree = "<group>"; };
+		778E5DA91DDE2E4E0075A57F /* LayerTutorial.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LayerTutorial.entitlements; sourceTree = "<group>"; };
 		77B245081DD14164008D8157 /* LayerTutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LayerTutorial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77B2450B1DD14164008D8157 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77B2450D1DD14164008D8157 /* LayerMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerMainViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +74,7 @@
 		77B2450A1DD14164008D8157 /* LayerTutorial */ = {
 			isa = PBXGroup;
 			children = (
+				778E5DA91DDE2E4E0075A57F /* LayerTutorial.entitlements */,
 				77B2450B1DD14164008D8157 /* AppDelegate.swift */,
 				77B2450D1DD14164008D8157 /* LayerMainViewController.swift */,
 				777AEABD1DD2930D006CB312 /* LayerChatCell.swift */,
@@ -131,6 +133,11 @@
 						DevelopmentTeam = 6RV5CH2XTD;
 						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -347,6 +354,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = LayerTutorial/LayerTutorial.entitlements;
 				DEVELOPMENT_TEAM = 6RV5CH2XTD;
 				INFOPLIST_FILE = LayerTutorial/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -364,6 +372,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = LayerTutorial/LayerTutorial.entitlements;
 				DEVELOPMENT_TEAM = 6RV5CH2XTD;
 				INFOPLIST_FILE = LayerTutorial/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

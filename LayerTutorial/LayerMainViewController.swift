@@ -80,10 +80,7 @@ class LayerMainViewController: UIViewController, UINavigationControllerDelegate 
     // MARK: IBActions
     
     @IBAction func pushedSend(_ sender: Any) {
-        print("PUSHED SEND: \(messageTextView.text)")
         // Send Message
-        var test = messageTextView.text!
-        print("TEST: \(test)")
         sendMessage(messageTextView.text!)
         
         // Lower the keyboard
@@ -246,6 +243,7 @@ class LayerMainViewController: UIViewController, UINavigationControllerDelegate 
             error = error1
             success = false
         }
+        
         if success {
             print("Query fetched \(queryController!.numberOfObjects(inSection: 0)) message objects")
         } else {
@@ -374,7 +372,6 @@ extension LayerMainViewController: UITableViewDataSource {
             if messagePart.data != nil {
                 cell.updateWithImage(image: UIImage(data: messagePart.data!)!)
             }
-            
         } else {
             cell.removeImage() //just a safegaurd to ensure  that no image is present
             cell.assignText(text: NSString(data: messagePart.data!, encoding: String.Encoding.utf8.rawValue) as! String)
@@ -382,7 +379,8 @@ extension LayerMainViewController: UITableViewDataSource {
         var timestampText = ""
         
         // If the message was sent by current user, show Receipent Status Indicator
-        if message!.sender.userID == LQSCurrentUserID {
+        let senderID: String = (message?.conversation?.participants.first?.userID)!
+        if senderID == LQSCurrentUserID {
             switch message!.recipientStatus(forUserID: LQSParticipantUserID) {
             case LYRRecipientStatus.sent:
                 cell.messageStatus.image = UIImage(named: MessageStateImage.Sent.rawValue)
@@ -401,15 +399,19 @@ extension LayerMainViewController: UITableViewDataSource {
         } else {
             do {
                 try message!.markAsRead()
-            } catch let error {
-                print("Could not read message and mark as read: \(error.localizedDescription).")
+                timestampText = "Received: \(dateFormatter.string(from: message!.sentAt!))"
+            } catch let error as NSError{
+                print("Could not read message and mark as read: \(error).")
             }
-            timestampText = "Received: \(dateFormatter.string(from: message!.sentAt!))"
+            //timestampText = "Received: \(dateFormatter.string(from: message!.sentAt!))"
+            //timestampText = "Received: "
         }
         
-        if message!.sender.userID != nil {
-            cell.deviceLabel.text = "\(message!.sender.userID) @ \(timestampText)"
-        }else {
+//        if message!.sender.userID != nil {
+//            cell.deviceLabel.text = "\(message!.sender.userID) @ \(timestampText)"
+        if senderID == LQSCurrentUserID {
+            cell.deviceLabel.text = "\(senderID) @ "
+        } else {
             cell.deviceLabel.text = "Platform @ \(timestampText)"
         }
     }
